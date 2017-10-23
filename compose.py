@@ -6,7 +6,7 @@ MIT License
 
 import logger, random, settings
 
-prev = 9
+prev = None
 
 def daily_selection():
     """
