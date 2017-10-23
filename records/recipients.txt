@@ -1,0 +1,3 @@
+buddy@provider.com
+anotherrecipient@anotherprovider.com
+lastexample@lastprovider.com
