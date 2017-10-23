@@ -4,7 +4,8 @@ Copyright (c) 2017 andynines
 MIT License
 """
 
-import settings, sys
+import settings
+import sys
 
 def log(text, newline=True, warn=False):
     """
