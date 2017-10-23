@@ -51,6 +51,3 @@ def routine():
     logger.log("Logging out")
     smtp.quit()
     logger.log("Operations complete")
-
-if __name__ == "__main__":
-    routine()
