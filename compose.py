@@ -4,7 +4,8 @@ Copyright (c) 2017 andynines
 MIT License
 """
 
-import logger, random, settings
+import logger, settings
+import random
 
 prev = None
 
