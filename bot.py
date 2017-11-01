@@ -20,9 +20,7 @@ def failure(warning):
 
 def routine():
     """
-    Executes the bot's routine operations. First, it must check its own emails
-    for messages containing a subscription cancel request. Then, it prepares its
-    email and sends the message to each member of the recipients list.
+    Executes the bot's routine operations.
     """
     logger.tidy()
     logger.log("Beginning operations")
