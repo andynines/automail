@@ -7,13 +7,6 @@ MIT License
 import compose, logger, settings
 import smtplib
 
-def recipients():
-    """
-    Returns a list of recipients' email addresses.
-    """
-    with open(settings.RECIPIENTS, "r") as file:
-        return file.readlines()
-
 def failure(warning):
     logger.log(warning, warn=True)
     return False
@@ -41,11 +34,12 @@ def routine():
         return failure("Login failed")
     logger.log("Sending emails")
     send_results = smtp.sendmail(settings.USERNAME,
-                                recipients(),
-                                message)
+                                 settings.RECIPIENTS,
+                                 message)
     if not (send_results == {}):
         logger.log("Sending failed for the following recipients: ", warn=True)
-        logger.log(str(send_results))
+        for address in send_results.keys():
+            logger.log(" - ".join([str(element) for element in send_results[address]]))
     logger.log("Logging out")
     smtp.quit()
     logger.log("Operations complete")

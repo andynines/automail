@@ -7,7 +7,7 @@ MIT License
 import logger, settings
 import random
 
-prev = None
+prev = None #store previous quote to prevent repeats
 
 def daily_selection():
     """
@@ -23,40 +23,14 @@ def daily_selection():
     logger.log("Selected: " + selection, newline=False)
     return selection
 
-def owner_message():
-    """
-    Checks whether the owner has prepared a message for the next round of
-    emails. All contents of the message file will be sent as that day's
-    message, and its contents will be deleted. If the file is empty, the emails
-    are sent with no message.
-    """
-    logger.log("Checking for message")
-    with open(settings.MESSAGE, "r") as file:
-        text = "".join(file.readlines())
-    logger.log(("Message: " + text)
-               if text else
-               "No message found\n", newline=False)
-    with open(settings.MESSAGE, "w") as file:
-        pass
-    logger.log("Message file cleaned")
-    return text
-
 def message():
     """
     Returns a message string that is ready to be placed into the final email.
-    Will follow the format:
-    Subject: [subject text]\n
-    [email text]\n
-    \n [if message follows]
-    [a message if the owner intends to send one]
-    \n [if there was a message]
-    [end message]
     """
     logger.log("Organizing message")
-    current_message = owner_message()
     final = ("Subject: " + settings.SUBJECT + "\n" +
             daily_selection() + "\n" +
-            (("MESSAGE: " + current_message + "\n") if current_message else "") +
-             settings.END_MESSAGE)
+            settings.END_MESSAGE + "\n" +
+            "Fork me on GitHub: " + settings.URL)
     logger.log("Begin final message:\n" + final + "\nEnd final message")
     return final
