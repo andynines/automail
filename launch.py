@@ -17,10 +17,10 @@ def main():
     logger.log("Automail launched\nPress Ctrl+C to terminate bot")
     while True:
         current_hour = datetime.datetime.now().hour
-        if current_hour == settings.SEND_HOUR and ready:
+        if (current_hour == settings.SEND_HOUR) and ready:
             bot.routine()
             ready = False
-        elif current_hour == (settings.SEND_HOUR + 1) % 24:
+        elif (current_hour == (settings.SEND_HOUR + 1) % 24) and not ready:
             ready = True
         time.sleep(settings.SLEEP_TIME)
 
