@@ -29,8 +29,8 @@ def message():
     """
     logger.log("Organizing message")
     final = ("Subject: " + settings.SUBJECT + "\n" +
-            daily_selection() + "\n" +
-            settings.END_MESSAGE + "\n" +
-            "Fork me on GitHub: " + settings.URL)
+             daily_selection() + "\n" +
+             settings.END_MESSAGE + "\n" +
+             "Fork me on GitHub: " + settings.URL)
     logger.log("Begin final message:\n" + final + "\nEnd final message")
     return final
