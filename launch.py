@@ -15,14 +15,17 @@ def main():
     ready = True
     logger.initialize()
     logger.log("Automail launched\nPress Ctrl+C to terminate bot")
-    while True:
-        current_hour = datetime.datetime.now().hour
-        if (current_hour == settings.SEND_HOUR) and ready:
-            bot.routine()
-            ready = False
-        elif (current_hour == (settings.SEND_HOUR + 1) % 24) and not ready:
-            ready = True
-        time.sleep(settings.SLEEP_TIME)
+    try:
+        while True:
+            current_hour = datetime.datetime.now().hour
+            if (current_hour == settings.SEND_HOUR) and ready:
+                bot.routine()
+                ready = False
+            elif (current_hour == (settings.SEND_HOUR + 1) % 24) and not ready:
+                ready = True
+            time.sleep(settings.SLEEP_TIME)
+    except KeyboardInterrupt:
+        logger.log("\nBot terminated")
 
 if __name__ == "__main__":
     main()
