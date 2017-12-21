@@ -14,4 +14,13 @@ Setup
 ---
 Open settings.py to configure a new bot. Automail will not work properly until
 it is given the parameters to properly connect to a valid email account. Run
-launch.py to activate the bot.
+launch.py to activate the bot. The composer looks at each individual line of the
+content file as a possible selection.
+
+Sample Email
+---
+Subject: Your daily quote has arrived
+"Every time we open our mouths, people can look into our minds."
+
+Have a nice day!
+Fork me on GitHub: https://www.github.com/andynines/automail
