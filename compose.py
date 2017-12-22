@@ -20,6 +20,7 @@ def daily_selection():
     selection = (random.choice(lines[0:prev] + lines[prev + 1:])
                  if prev else
                  random.choice(lines))
+    selection += ("\n" if selection[-1] != "\n" else "")
     logger.log("Selected: " + selection, newline=False)
     return selection
 
