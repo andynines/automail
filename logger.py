@@ -35,7 +35,7 @@ def tidy():
     log("Tidying up log")
     with open(settings.LOG, "r") as file:
         lines = file.readlines()
-    length = len(lines) - 2 #exclude log entires created by this function
+    length = len(lines) + 1 #offset log entires created by this function
     if length > settings.MAX_LINES:
         with open(settings.LOG, "w") as file:
             for line in lines[length - settings.MAX_LINES:]:
