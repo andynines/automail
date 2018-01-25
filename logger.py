@@ -1,11 +1,19 @@
 """
 logger.py
-Copyright (c) 2017 andynines
+Copyright (c) 2018 andynines
 MIT License
 """
 
 import settings
 import sys
+
+def initialize():
+    """
+    Creates a new log. Should be called before any other log operations.
+    """
+    with open(settings.LOG, "w"):
+        pass
+    log("Fresh log")
 
 def log(text, newline=True, warn=False):
     """
@@ -17,14 +25,6 @@ def log(text, newline=True, warn=False):
     with open(settings.LOG, "a") as file:
         file.write(message)
     sys.stdout.write(message)
-
-def initialize():
-    """
-    Creates a new log. Should be called before any other log operations.
-    """
-    with open(settings.LOG, "w"):
-        pass
-    log("Fresh log")
     
 def tidy():
     """
