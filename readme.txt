@@ -2,9 +2,9 @@ readme.txt
 
 About
 ---
-Automail is an email bot that sends out selections from a content file every 24
-hours. It is perfect for something like a "daily quote" mailing list, or
-anything else that you can imagine!
+Automail is an email bot that sends out selections from a content file during
+specified hours of the day. It's perfect for something like a "daily quote"
+mailing list, or anything else that you can imagine!
 
 License
 ---
