@@ -1,6 +1,6 @@
 """
 launch.py
-Copyright (c) 2017 andynines
+Copyright (c) 2018 andynines
 MIT License
 """
 
@@ -13,15 +13,19 @@ def main():
     when specified in the settings module.
     """
     ready = True
+    prev_hour = None
     logger.initialize()
     logger.log("Automail launched\nPress Ctrl+C to terminate bot")
     try:
         while True:
-            current_hour = datetime.datetime.now().hour
-            if (current_hour == settings.SEND_HOUR) and ready:
+            current_hour = datetime.datetime.now().minute #hour
+            if (current_hour in settings.SEND_HOURS) and ready:
+                logger.log("Beginning operations for hour " + str(current_hour))
                 bot.routine()
                 ready = False
-            elif (current_hour == (settings.SEND_HOUR + 1) % 24) and not ready:
+                prev_hour = current_hour
+                logger.log("Ending operations for hour " + str(current_hour))
+            elif (current_hour != prev_hour) and not ready:
                 ready = True
             time.sleep(settings.SLEEP_TIME)
     except KeyboardInterrupt:
