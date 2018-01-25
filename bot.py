@@ -1,6 +1,6 @@
 """
 bot.py
-Copyright (c) 2017 andynines
+Copyright (c) 2018 andynines
 MIT License
 """
 
@@ -16,7 +16,6 @@ def routine():
     Executes the bot's routine operations.
     """
     logger.tidy()
-    logger.log("Beginning operations")
     message = compose.message()
     logger.log("Initializing SMTP object")
     smtp = (smtplib.SMTP_SSL(settings.HOST, settings.PORT)
@@ -42,4 +41,3 @@ def routine():
             logger.log(" - ".join([str(element) for element in send_results[address]]))
     logger.log("Logging out")
     smtp.quit()
-    logger.log("Operations complete")
