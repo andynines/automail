@@ -1,6 +1,6 @@
 """
 compose.py
-Copyright (c) 2017 andynines
+Copyright (c) 2018 andynines
 MIT License
 """
 
