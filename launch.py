@@ -18,7 +18,7 @@ def main():
     logger.log("Automail launched\nPress Ctrl+C to terminate bot")
     try:
         while True:
-            current_hour = datetime.datetime.now().minute #hour
+            current_hour = datetime.datetime.now().hour
             if (current_hour in settings.SEND_HOURS) and ready:
                 logger.log("Beginning operations for hour " + str(current_hour))
                 bot.routine()
