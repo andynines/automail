@@ -28,5 +28,5 @@ LOG = os.path.join("records", "log.txt") #path to file which logger will write a
 MAX_LINES = 300 #maximum number of lines before the logger begins to delete old entries
 
 #timer settings
-SEND_HOUR = 7 #hour at which emails are sent daily; use 24-hour clock
-SLEEP_TIME = 60 #second interval between time checks
+SEND_HOURS = [7] #hours at which emails are sent daily; use 24-hour clock
+SLEEP_TIME = 1800 #second interval between time checks
