@@ -5,15 +5,7 @@ MIT License
 """
 
 import settings
-import sys
-
-def initialize():
-    """
-    Creates a new log. Should be called before any other log operations.
-    """
-    with open(settings.LOG, "w"):
-        pass
-    log("Fresh log")
+import datetime, sys
 
 def log(text, newline=True, warn=False):
     """
@@ -21,10 +13,21 @@ def log(text, newline=True, warn=False):
     printed to stdout.
     """
     assert type(text) is str
-    message = ("WARNING: " if warn else "") + text + ("\n" if newline else "")
+    message = str(datetime.datetime.now()) + " " 
+    message += ("WARNING: " if warn else "")
+    message += text
+    message += ("\n" if newline else "")
     with open(settings.LOG, "a") as file:
         file.write(message)
     sys.stdout.write(message)
+    
+def initialize():
+    """
+    Creates a new log. Should be called before any other log operations.
+    """
+    with open(settings.LOG, "w"):
+        pass
+    log("Fresh log")
     
 def tidy():
     """
