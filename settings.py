@@ -20,13 +20,10 @@ RECIPIENTS = ["buddy@provider.com", #recipients' email addresses
               "lastexample@lastprovider.com"]
 SUBJECT = "Your daily quote has arrived" #string to appear in subject of each email
 CONTENT = os.path.join("records", "quotes.txt") #path to content file to pull material from
+PREVIOUS = os.path.join("records", "previous.dat") #path to file containing index of previous quote
 END_MESSAGE = "Have a nice day!" #message that appears at the end of emails
 URL = "https://www.github.com/andynines/automail" #link to the github repo
 
 #log settings
 LOG = os.path.join("records", "log.txt") #path to file which logger will write and manage
 MAX_LINES = 300 #maximum number of lines before the logger begins to delete old entries
-
-#timer settings
-SEND_HOURS = [7] #hours at which emails are sent daily; use 24-hour clock
-SLEEP_TIME = 1800 #second interval between time checks
