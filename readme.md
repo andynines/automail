@@ -5,11 +5,10 @@ The contents of this repository are made available under the MIT License.
 ## Setup
 Setting up an Automail bot is fast and simple.
 1. **Gather material for the content file.** By default, the content file is located in the `records` folder and is called `quotes.txt`. The composer views each individual line of this file as a possible selection to appear in an email.
-2. **Configure a new bot.** The constants which will be used to log into an email account and style the message are declared in `settings.py`. Your email provider determines what server domain name and port number to use, and may require you to undergo additional steps before you may log into an account programatically.
+2. **Configure a new bot.** The constants which will be used to log into an email account and style the message are declared in `settings.py`. Your email provider determines what server domain name and port number to use, and may require you to undergo additional steps before you can log into an account programatically.
 3. **Initialize the environment.** Move your current directory to the top level of the repository and run `initialize.py`.
 4. **Schedule the bot.** Using Windows Task Scheduler or Cron, schedule `automail.py` to run whenever you desire. It will be completely self-sufficient from hereon.
 ## Usage
-### Log dump
 The bot actively logs all of its actions.
 
     2018-03-23 23:20:03.167494 Fresh log
@@ -33,7 +32,6 @@ The bot actively logs all of its actions.
     2018-03-23 23:20:29.393994 Sending emails
     2018-03-23 23:20:29.948026 Logging out
     2018-03-23 23:20:29.979028 Terminating mail cycle
-### Email
 Messages appear to recipients like the following.
 
     Subject: Your daily quote has arrived
