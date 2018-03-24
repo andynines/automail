@@ -28,7 +28,6 @@ def daily_selection():
     by a newline; every line is a new piece of content.
     """
     logger.log("Selecting today's material")
-    
     with open(settings.CONTENT, "r") as file:
         content = file.readlines()
     lines = len(content)
